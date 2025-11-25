@@ -2,7 +2,6 @@
 header('Content-Type: application/json');
 require_once __DIR__ . '/../admin/models/User.php';
 
-// Obtenemos datos enviados via POST
 $data = json_decode(file_get_contents('php://input'), true);
 
 if (!isset($data['nombre'], $data['email'], $data['password'])) {
@@ -14,7 +13,6 @@ $nombre = $data['nombre'];
 $email = $data['email'];
 $password = $data['password'];
 
-// Crear usuario
 $result = User::create($nombre, $email, $password);
 
 if ($result) {
